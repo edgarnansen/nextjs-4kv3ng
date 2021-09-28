@@ -27,7 +27,10 @@ export default async function currencyHandler(
     return res.status(404).end(`Currency Not Found`);
   }
 
-  const lorem = await fs.readFile(path.join(process.cwd(), loremFile), 'utf-8');
+  const lorem = await fs.readFile(
+    path.join(path.resolve('./public'), loremFile),
+    'utf-8'
+  );
 
   return res.status(200).json({ ...currency, history: lorem });
 }
