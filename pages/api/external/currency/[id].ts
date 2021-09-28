@@ -68,7 +68,7 @@ export default async function currencyHandler(
   }
 
   if (shouldFailRandomly()) {
-    return res.status(500).end('Internal Server Error');
+    throw 'Random failure';
   }
 
   if (responseShouldBeSlow()) {

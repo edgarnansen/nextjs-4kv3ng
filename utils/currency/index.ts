@@ -28,6 +28,7 @@ export interface Currency {
   isCrypto: boolean;
   countryOfOrigin?: CountryCode;
   conversionRates: ConversionRates;
+  history?: string;
 }
 
 const BHD: Currency = {
@@ -137,4 +138,4 @@ export const toMinor = (major: number, exponent: number) =>
 export const toMajor = (minor: number, exponent: number) =>
   Math.round(minor / Math.pow(10, exponent));
 
-export const currencies = [BHD, EUR, GBP, NOK, USD];
+export const currencies = [BHD, EUR, GBP, JPY, NOK, USD];
