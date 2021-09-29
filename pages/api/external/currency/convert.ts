@@ -30,8 +30,8 @@ export default async function convertCurrencyHandler(
 
   res.status(200).json({
     amount,
-    from,
-    to,
+    from: fromCurrency,
+    to: toCurrency,
     result:
       conversionRate * parseFloat(Array.isArray(amount) ? amount[0] : amount),
   });
