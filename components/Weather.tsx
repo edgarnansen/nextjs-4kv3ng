@@ -5,7 +5,7 @@ interface WeatherProps {
   location: GeolocationPosition;
 }
 
-export const Weather: React.FC<WeatherProps> = ({ location }) => {
+export const Weather = ({ location }: WeatherProps) => {
   const { data, error, isLoading } = useWeather(location.coords);
   if (!data) {
     return null;

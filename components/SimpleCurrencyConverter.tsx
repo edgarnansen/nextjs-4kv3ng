@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { useQuery } from 'react-query';
 
 interface SimpleCurrencyConverterProps {
@@ -15,11 +14,11 @@ export const convertCurrency = async (
   return '??';
 };
 
-export const SimpleCurrencyConverter: FC<SimpleCurrencyConverterProps> = ({
+export const SimpleCurrencyConverter = ({
   amount,
   from,
   to,
-}) => {
+}: SimpleCurrencyConverterProps) => {
   const { data } = useQuery(`convert-from-${amount}${from}-to-${to}`, () =>
     convertCurrency(amount, from, to)
   );

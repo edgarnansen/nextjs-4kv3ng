@@ -4,7 +4,6 @@ const isPermissionsAPISupported = () => navigator.permissions != null;
 const positionToString = ({
   coords: { latitude, longitude },
 }: GeolocationPosition) => `(${latitude}, ${longitude})`;
-interface geoLocation {}
 
 export const useGeoLocation = () => {
   const [hasPermissionsAPISupport, setHasPermissionsAPISupport] =
