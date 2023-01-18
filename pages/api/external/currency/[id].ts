@@ -8,6 +8,9 @@ const loremFile = 'lorem.txt';
 
 const randomFailureRatePercentage = 10;
 const shouldFailRandomly = () => {
+  if (process.env.RANDOM_FAILURE == 'false') {
+    return false;
+  }
   const randomPercentage = getRandomNumber(0, 100);
   return randomPercentage < randomFailureRatePercentage;
 };
@@ -18,6 +21,9 @@ const getRandomNumber = (min: number, max: number) => {
 
 const randomSlownessRatePercentage = 25;
 const responseShouldBeSlow = () => {
+  if (process.env.RANDOM_SLOWNESS == 'false') {
+    return false;
+  }
   const randomPercentage = getRandomNumber(0, 100);
   return randomPercentage < randomSlownessRatePercentage;
 };
