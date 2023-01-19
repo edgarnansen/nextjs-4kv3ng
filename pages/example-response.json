@@ -1,0 +1,16 @@
+{
+  "alphabeticCode": "EUR",
+  "exponent": 2,
+  "name": "Euro",
+  "symbol": "€",
+  "isCrypto": false,
+  "introductionYear": 1999,
+  "conversionRates": {
+    "BHD": 0.43911894,
+    "EUR": 1,
+    "GBP": 0.86227807,
+    "JPY": 130.21196,
+    "NOK": 10.092985,
+    "USD": 1.1677356
+  }
+}
