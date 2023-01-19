@@ -1,0 +1,12 @@
+### Fetch currencies
+GET {{host}}/api/external/currencies
+
+### Fetch currency details
+GET {{host}}/api/external/currency/BHD
+
+### Convert between currencies
+GET {{host}}/api/external/currency/convert?from=NOK&to=BHD&amount=1
+
+
+### Get weather
+GET {{host}}/api/integration/weather?lat=63.446827&lon=10.421906
