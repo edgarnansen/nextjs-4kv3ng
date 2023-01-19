@@ -26,6 +26,12 @@ Returns an object
 }
 ```
 
+example:
+
+```http
+GET {{host}}/api/external/currency/BHD
+```
+
 ## /api/external/currency/convert
 
 Requires query params `from`, `to` and `amount`, where `from` and `to` are CurrencyCodes while `amount` is a number.
@@ -36,6 +42,18 @@ Returns an object
  { from: CurrencyCode, to: CurrencyCode, amount: number, result: number }
 ```
 
+example:
+
+```http
+GET {{host}}/api/external/currency/convert?from=NOK&to=EUR&amount=100
+```
+
 ## /api/external/currencies
 
 Returns a list of supported currency codes
+
+example:
+
+```http
+GET {{host}}/api/external/currencies
+```
