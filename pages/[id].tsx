@@ -13,7 +13,7 @@ export default function ParameterRoute({ id }: Props) {
 
       <h2>Object key:value</h2>
       {Object.entries(data).map(([key, value]) => (
-        <div>
+        <div key={key}>
           <b>{key}</b>: {JSON.stringify(value)}
         </div>
       ))}

@@ -2,6 +2,8 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { weatherAPIBase } from '../../../utils/api';
 import axios from 'axios';
 import BottleNeck from 'bottleneck';
+import https from 'https';
+import crypto from 'crypto';
 
 const limiter = new BottleNeck({
   minTime: 50,
@@ -10,6 +12,9 @@ const limiter = new BottleNeck({
 
 const getWeather = (lat: string, lon: string) =>
   axios.get(`${weatherAPIBase}`, {
+    httpsAgent: new https.Agent({
+      secureOptions: crypto.constants.SSL_OP_LEGACY_SERVER_CONNECT,
+    }),
     params: {
       lat,
       lon,

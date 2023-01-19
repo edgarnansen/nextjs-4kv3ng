@@ -2,10 +2,16 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { externalAPIBase } from '../../../../utils/api';
 import { Currency, CurrencyCode } from '../../../../utils/currency';
 import axios from 'axios';
+import https from 'https';
+import crypto from 'crypto';
 import axiosRetry from 'axios-retry';
 
 const getCurrency = (currency: CurrencyCode) =>
-  axios.get<Currency>(`${externalAPIBase}/currency/${currency}`);
+  axios.get<Currency>(`${externalAPIBase}/currency/${currency}`, {
+    httpsAgent: new https.Agent({
+      secureOptions: crypto.constants.SSL_OP_LEGACY_SERVER_CONNECT,
+    }),
+  });
 
 export default async function convertCurrencyHandler(
   req: NextApiRequest,
