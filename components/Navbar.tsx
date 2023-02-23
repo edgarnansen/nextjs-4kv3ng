@@ -1,3 +1,4 @@
+/* TODO: Actually make the pages */
 const NAVBAR_ITEMS = [
   { title: 'Forsiden', url: '/' },
   { title: 'Valutakurser', url: '/valuta' },

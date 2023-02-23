@@ -1,5 +1,6 @@
 :root {
   --background-color: rgb(215, 238, 230);
+  --font-stack: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 /* TODO: Make dark mode work. */
@@ -11,14 +12,13 @@
   }
 */
 
-/* TODO: Make other themes too! For example Cool, Dim and Neon. */
+/* TODO: Make other themes too? For example Cool, Dim and Neon. */
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--font-stack, "Comic Sans MS", "Comic Sans", cursive);
 }
 
 a {
