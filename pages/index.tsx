@@ -28,7 +28,7 @@ export default function Home() {
         {/* TODO: Make it possible to buy currency */}
         <BuyCurrency />
       </main>
-
+      {/* TODO: Make content fill available height so that footer is always at the bottom */}
       <footer className={styles.footer}>SpareBank 1 Utvikling</footer>
     </div>
   );
