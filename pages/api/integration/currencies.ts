@@ -5,10 +5,8 @@ import https from 'https';
 import crypto from 'crypto';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const response = await axios.get(`${externalAPIBase}/currencies`, {
-    httpsAgent: new https.Agent({
-      secureOptions: crypto.constants.SSL_OP_LEGACY_SERVER_CONNECT,
-    }),
-  });
-  res.status(200).json(response.data);
+  // TODO: Fetch from external API to get more currencies.
+  // const response = await axios.get(`${externalAPIBase}/currencies`, {});
+
+  res.status(200).json(['NOK', 'BHD', 'EUR', 'GBP']);
 };
