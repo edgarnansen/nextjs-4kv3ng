@@ -1,17 +1,12 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { externalAPIBase } from '../../../../utils/api';
 import { Currency, CurrencyCode } from '../../../../utils/currency';
-import axios from 'axios';
-import https from 'https';
-import crypto from 'crypto';
-import axiosRetry from 'axios-retry';
 
-const getCurrency = (currency: CurrencyCode) =>
-  axios.get<Currency>(`${externalAPIBase}/currency/${currency}`, {
-    httpsAgent: new https.Agent({
-      secureOptions: crypto.constants.SSL_OP_LEGACY_SERVER_CONNECT,
-    }),
-  });
+const getCurrency = async (currency: CurrencyCode) => {
+  const response = await fetch(`${externalAPIBase}/currency/${currency}`);
+  // TODO: Error handling? Type assertions?
+  return (await response.json()) as Currency;
+};
 
 export default async function convertCurrencyHandler(
   req: NextApiRequest,
@@ -22,14 +17,12 @@ export default async function convertCurrencyHandler(
     method,
   } = req;
 
-  axiosRetry(axios, { retryDelay: axiosRetry.exponentialDelay, retries: 100 });
-
   const result = await Promise.all([
     getCurrency(from as CurrencyCode),
     getCurrency(to as CurrencyCode),
   ]);
 
-  const [{ data: fromCurrency }, { data: toCurrency }] = result;
+  const [fromCurrency, toCurrency] = result;
 
   const conversionRate =
     fromCurrency.conversionRates[toCurrency.alphabeticCode];
