@@ -1,14 +1,13 @@
 import { useQuery } from 'react-query';
 import { SimpleCurrencyConverter } from './SimpleCurrencyConverter';
-import styles from './CurrenciesDashboard.module.css';
-import { MoreAdvancedCurrencyConverter } from './MoreAdvancedCurrencyConverter';
+import styles from './PopularCurrencies.module.css';
 
 const fetchCurrencies = async () => {
   const response = await fetch('/api/integration/currencies');
   return (await response.json()) as string[];
 };
 
-export const CurrenciesDashboard = () => {
+export const PopularCurrencies = () => {
   const { data } = useQuery('currencies', fetchCurrencies);
 
   return (
@@ -21,7 +20,6 @@ export const CurrenciesDashboard = () => {
           to="NOK"
         />
       ))}
-      {data != null && <MoreAdvancedCurrencyConverter currencyCodes={data} />}
     </div>
   );
 };

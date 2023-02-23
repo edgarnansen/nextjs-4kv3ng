@@ -1,7 +1,8 @@
 import Head from 'next/head';
+import { BuyCurrency } from '../components/BuyCurrency';
+import { Navbar } from '../components/Navbar';
+import { PopularCurrencies } from '../components/PopularCurrencies';
 import styles from '../styles/Home.module.css';
-import { CurrentWeather } from '../components/CurrentWeather';
-import { CurrenciesDashboard } from '../components/CurrenciesDashboard';
 
 export default function Home() {
   return (
@@ -9,16 +10,23 @@ export default function Home() {
       <Head>
         <title>Valutakalkulator App</title>
       </Head>
-      <CurrentWeather />
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Valutakalkulator</h1>
+        {/* TODO: Fix spacing in Navbar, and make Navbar items clickable */}
+        <Navbar />
 
+        {/* TODO: Use a semantic tag instead of paragraph for the title. */}
+        <p className={styles.title}>Valutakalkulator</p>
         <p className={styles.description}>
-          Her kan du finne valutakurser og konvertere til andre valutaer
+          Det beste stedet for å se valutakurser, og å kjøpe valuta
         </p>
+        <h2>Populære valutakurser</h2>
 
-        <CurrenciesDashboard />
+        {/* TODO: Convert popular currencies */}
+        <PopularCurrencies />
+
+        {/* TODO: Make it possible to buy currency */}
+        <BuyCurrency />
       </main>
 
       <footer className={styles.footer}>SpareBank 1 Utvikling</footer>
